@@ -1,10 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerMovement : MonoBehaviour
-{
+public class PlayerMovement : MonoBehaviour {
 
   public float moveSpeed = 5f;
 
@@ -17,20 +14,17 @@ public class PlayerMovement : MonoBehaviour
 
   private Vector2 _movement;
 
-  void Update()
-  {
+  void Update() {
     _movement = move.action.ReadValue<Vector2>();
 
-    if (animator)
-    {
+    if (animator) {
       animator.SetFloat("Horizontal", _movement.x);
       animator.SetFloat("Vertical", _movement.y);
       animator.SetFloat("Speed", _movement.sqrMagnitude);
     }
   }
 
-  void FixedUpdate()
-  {
+  void FixedUpdate() {
     rb.MovePosition(rb.position + _movement.normalized * moveSpeed * Time.fixedDeltaTime);
   }
 
