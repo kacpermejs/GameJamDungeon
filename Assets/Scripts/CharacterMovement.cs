@@ -1,7 +1,8 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerMovement : MonoBehaviour {
+[RequireComponent(typeof(IMovementInput))]
+public class CharacterMovement : MonoBehaviour {
 
   public float moveSpeed = 5f;
 
@@ -9,13 +10,16 @@ public class PlayerMovement : MonoBehaviour {
 
   public Animator animator;
 
-  [SerializeField]
-  private InputActionReference move;
-
   private Vector2 _movement;
 
+  private IMovementInput _input;
+
+  void Awake() {
+    _input = GetComponent<IMovementInput>();
+  }
+
   void Update() {
-    _movement = move.action.ReadValue<Vector2>();
+    _movement = _input.MovementDirection;
 
     if (animator) {
       animator.SetFloat("Horizontal", _movement.x);
