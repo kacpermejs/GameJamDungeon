@@ -10,10 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4068555247160221588}
   - component: {fileID: 5094612714938251073}
-  - component: {fileID: 2099786945917675733}
   - component: {fileID: 8943690253073301787}
-  - component: {fileID: 7774797777897956706}
-  - component: {fileID: 4710564477046989317}
+  - component: {fileID: 4221701063902156002}
+  - component: {fileID: 8226584042101697103}
   m_Layer: 0
   m_Name: Hero
   m_TagString: Untagged
@@ -88,33 +87,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!50 &2099786945917675733
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9149360259769543352}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
 --- !u!58 &8943690253073301787
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -150,7 +122,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &7774797777897956706
+--- !u!114 &4221701063902156002
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -159,21 +131,29 @@ MonoBehaviour:
   m_GameObject: {fileID: 9149360259769543352}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dbbc8c12b64112f4e85661669505aba2, type: 3}
+  m_Script: {fileID: 11500000, guid: 5ff83860887d6fd439b0098b937732f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &4710564477046989317
-MonoBehaviour:
+  _target: {fileID: 0}
+--- !u!195 &8226584042101697103
+NavMeshAgent:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9149360259769543352}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9493eca0324194e4daf0befc1decfdfc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 10
-  rb: {fileID: 2099786945917675733}
-  animator: {fileID: 0}
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 2
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
