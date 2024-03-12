@@ -314,7 +314,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -359,7 +359,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 46469050}
   offset: {x: 0, y: 0, z: -10}
-  smoothSpeed: 0.125
+  smoothSpeed: 1
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -76911,15 +76911,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8943690253073301787, guid: 282422f8bc7819a4bb98f5961e308b5d, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9149360259769543352, guid: 282422f8bc7819a4bb98f5961e308b5d, type: 3}
       propertyPath: m_Name
       value: Hero
       objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 8943690253073301787, guid: 282422f8bc7819a4bb98f5961e308b5d, type: 3}
-    - {fileID: 2099786945917675733, guid: 282422f8bc7819a4bb98f5961e308b5d, type: 3}
+    - {fileID: 0}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
