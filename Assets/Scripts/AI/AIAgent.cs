@@ -14,8 +14,9 @@ public class AIAgent : MonoBehaviour {
     agent.updateRotation = false;
     agent.updateUpAxis = false;
   }
+    public void SetTarget(Transform target) => _target = target;
 
-  void Update() {
+    void Update() {
     if (agent != null) {
       agent.SetDestination(_target.position);
     }
