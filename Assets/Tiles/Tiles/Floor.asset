@@ -189,7 +189,7 @@ MonoBehaviour:
     m_RuleTransform: 0
   - m_Id: 9
     m_Sprites:
-    - {fileID: -142856199, guid: dfe69b1aa9d7d5146bee351c2cea75bb, type: 3}
+    - {fileID: -1377273867, guid: dfe69b1aa9d7d5146bee351c2cea75bb, type: 3}
     - {fileID: 294852643, guid: dfe69b1aa9d7d5146bee351c2cea75bb, type: 3}
     - {fileID: 1491176404, guid: dfe69b1aa9d7d5146bee351c2cea75bb, type: 3}
     - {fileID: 1629156254, guid: dfe69b1aa9d7d5146bee351c2cea75bb, type: 3}
