@@ -17,7 +17,7 @@ public class AIAgent : MonoBehaviour {
   public void SetTarget(Transform target) => _target = target;
 
   void Update() {
-    if (agent != null) {
+    if (_target != null) {
       agent.SetDestination(_target.position);
     }
   }
