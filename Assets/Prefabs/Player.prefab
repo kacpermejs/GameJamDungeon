@@ -15,9 +15,10 @@ GameObject:
   - component: {fileID: 4135762820227983586}
   - component: {fileID: 1910011795543133972}
   - component: {fileID: 8344441571973703430}
+  - component: {fileID: 6100640876264725164}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -209,3 +210,30 @@ MonoBehaviour:
   moveSpeed: 10
   rb: {fileID: 2959008716889519439}
   animator: {fileID: 0}
+--- !u!114 &6100640876264725164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8111434981533495150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b87d5f9c8ca1404cb8fab54b1919dd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _collider: {fileID: 1695130855508935805}
+  _filter:
+    useTriggers: 1
+    useLayerMask: 1
+    useDepth: 0
+    useOutsideDepth: 0
+    useNormalAngle: 0
+    useOutsideNormalAngle: 0
+    layerMask:
+      serializedVersion: 2
+      m_Bits: 64
+    minDepth: 0
+    maxDepth: 0
+    minNormalAngle: 0
+    maxNormalAngle: 0

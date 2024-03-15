@@ -762,7 +762,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Chest
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1383637008494492475, guid: 101f2a1c44fb12a4abab82b9e8755d5f, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -77473,16 +77474,32 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 806060778}
     m_Modifications:
+    - target: {fileID: 6100640876264725164, guid: 92f4a0a84406bd445b253faf6ba88695, type: 3}
+      propertyPath: _interactionAction
+      value: 
+      objectReference: {fileID: 6631631119491614487, guid: cbb53287a0813a74bb244d5ce22f7601, type: 3}
+    - target: {fileID: 6100640876264725164, guid: 92f4a0a84406bd445b253faf6ba88695, type: 3}
+      propertyPath: interactionActionRef
+      value: 
+      objectReference: {fileID: 6631631119491614487, guid: cbb53287a0813a74bb244d5ce22f7601, type: 3}
+    - target: {fileID: 6100640876264725164, guid: 92f4a0a84406bd445b253faf6ba88695, type: 3}
+      propertyPath: interactionAction.m_Name
+      value: Interaction
+      objectReference: {fileID: 0}
+    - target: {fileID: 6100640876264725164, guid: 92f4a0a84406bd445b253faf6ba88695, type: 3}
+      propertyPath: interactionAction.m_SingletonActionBindings.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6100640876264725164, guid: 92f4a0a84406bd445b253faf6ba88695, type: 3}
+      propertyPath: interactionAction.m_SingletonActionBindings.Array.data[0].m_Id
+      value: f8c6d835-9017-4b27-89b6-db559530e1b0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6100640876264725164, guid: 92f4a0a84406bd445b253faf6ba88695, type: 3}
+      propertyPath: interactionAction.m_SingletonActionBindings.Array.data[0].m_Action
+      value: Interaction
+      objectReference: {fileID: 0}
     - target: {fileID: 8111434981533495150, guid: 92f4a0a84406bd445b253faf6ba88695, type: 3}
       propertyPath: m_Name
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 8111434981533495150, guid: 92f4a0a84406bd445b253faf6ba88695, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8111434981533495150, guid: 92f4a0a84406bd445b253faf6ba88695, type: 3}
-      propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 8264035082473826987, guid: 92f4a0a84406bd445b253faf6ba88695, type: 3}
@@ -77643,7 +77660,7 @@ PrefabInstance:
     - target: {fileID: 4221701063902156002, guid: 282422f8bc7819a4bb98f5961e308b5d, type: 3}
       propertyPath: _target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1073032084}
     - target: {fileID: 4710564477046989317, guid: 282422f8bc7819a4bb98f5961e308b5d, type: 3}
       propertyPath: rb
       value: 
@@ -77651,10 +77668,6 @@ PrefabInstance:
     - target: {fileID: 7774797777897956706, guid: 282422f8bc7819a4bb98f5961e308b5d, type: 3}
       propertyPath: m_Enabled
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8226584042101697103, guid: 282422f8bc7819a4bb98f5961e308b5d, type: 3}
-      propertyPath: m_Radius
-      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 8943690253073301787, guid: 282422f8bc7819a4bb98f5961e308b5d, type: 3}
       propertyPath: m_Enabled
