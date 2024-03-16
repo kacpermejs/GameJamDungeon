@@ -3,6 +3,12 @@ using UnityEngine;
 public class Door : MonoBehaviour {
 
   [SerializeField]
+  private Room _from;
+
+  [SerializeField]
+  private Room _into;
+
+  [SerializeField]
   private bool isLocked = false;
 
   [SerializeField]
