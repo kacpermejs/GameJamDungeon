@@ -3,11 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public interface IInteractive {
-  public void Interact(Actor actor);
-  public bool CanInteract(Actor actor);
-}
-
 public class Actor : MonoBehaviour {
 
   [SerializeField]
