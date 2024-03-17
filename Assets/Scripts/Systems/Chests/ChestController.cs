@@ -23,11 +23,11 @@ public class ChestController : MonoBehaviour, IInteractive
 
   public UnityEvent<ChestState> onChestStateChanged;
 
-  public bool CanInteract(Actor actor) {
+  public bool CanInteract(IActor actor) {
     return !chestState.isLocked;
   }
 
-  public void Interact(Actor actor) {
+  public void Interact(IActor actor) {
     if (!chestState.isOpen && !chestState.isLocked) {
       Open();
     } else if (!chestState.isOpen && chestState.isLocked) {

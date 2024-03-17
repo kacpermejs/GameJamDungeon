@@ -1,4 +1,4 @@
 ﻿public interface IInteractive {
-  public void Interact(Actor actor);
-  public bool CanInteract(Actor actor);
+  public void Interact(IActor actor);
+  public bool CanInteract(IActor actor);
 }
