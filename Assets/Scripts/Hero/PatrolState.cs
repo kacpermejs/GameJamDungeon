@@ -1,36 +1,29 @@
+using Assets.Scripts.Systems.Common.StateMachine;
 using UnityEngine;
 
-public class PatrolState : IHeroState {
-  private readonly HeroController heroController;
+public class PatrolState : State {
 
-  public PatrolState(HeroController heroController) {
-    this.heroController = heroController;
+  public override void OnUpdate(StateMachine owner) {
+    base.OnUpdate(owner);
+    
+  }
+}
+
+public class CanSeePlayerTransition : Transition {
+  public CanSeePlayerTransition(State from, State to) : base(from, to) { }
+
+  public override bool Condition(StateMachine owner) {
+    return CanSeePlayer(owner);
   }
 
-  public void Enter() {
-    // Enter patrol state logic
-  }
-
-  public void Update() {
-    // Update patrol state logic
-
-    // Check for player detection
-    if (CanSeePlayer()) {
-      // Transition to the fighting state if the player is seen
-      heroController.TransitionToState(new FightState(heroController));
-      return; // Exit the Update method to avoid continuing patrol logic
-    }
-  }
-
-  public void Exit() {
-    // Exit patrol state logic
-  }
-  private bool CanSeePlayer() {
+  private bool CanSeePlayer(StateMachine owner) {
     // Set the radius of the circle cast
     float radius = 5f;
 
     // Set the maximum distance for the circle cast
     float maxDistance = 10f; // Adjust this value as needed
+
+    var heroController = owner.GetComponent<HeroController>();
 
     // Perform circle cast around the enemy
     RaycastHit2D[] hits = Physics2D.CircleCastAll(heroController.transform.position, radius, Vector2.up, maxDistance);
@@ -44,6 +37,11 @@ public class PatrolState : IHeroState {
 
     return false;
   }
-
-
 }
+
+public class CannotSeePlayerTransition : CanSeePlayerTransition {
+  public CannotSeePlayerTransition(State from, State to) : base(from, to) { }
+
+  public override bool Condition(StateMachine owner) { return !base.Condition(owner); }
+}
+

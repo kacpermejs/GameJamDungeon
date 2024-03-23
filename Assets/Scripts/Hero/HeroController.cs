@@ -1,34 +1,27 @@
+using Assets.Scripts.Systems.Common.StateMachine;
 using UnityEngine;
 
-public class HeroController : MonoBehaviour {
-  private IHeroState currentState;
+public class HeroController : StateMachine {
   private AIAgent _aiAgent; // Reference to the AIAgent component
 
+  private PatrolState _patrolState;
+  private FightState _fightState;
+
   private void Awake() {
+
+    _patrolState = new PatrolState();
+    _fightState = new FightState();
+
+    RegisterTransition(new CanSeePlayerTransition(_patrolState, _fightState));
+    RegisterTransition(new CannotSeePlayerTransition(_fightState, _patrolState));
+
+    Initialize(_patrolState);
+
     // Get the AIAgent component attached to the same GameObject
     _aiAgent = GetComponent<AIAgent>();
   }
 
-  void Start() {
-    // Initialize with patrol state
-    currentState = new PatrolState(this);
-  }
-
-  void Update() {
-    // Update the current state
-    currentState.Update();
-  }
-
-  public void TransitionToState(IHeroState newState) {
-    // Exit the current state
-    currentState.Exit();
-
-    // Transition to the new state
-    currentState = newState;
-    currentState.Enter();
-  }
-
-  public void setTarget(Transform transform) {
+  public void SetTarget(Transform transform) {
     _aiAgent.SetTarget(transform);
   }
 

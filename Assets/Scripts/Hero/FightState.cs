@@ -1,15 +1,12 @@
+using Assets.Scripts.Systems.Common.StateMachine;
 using UnityEngine;
 
-public class FightState : IHeroState {
-  private readonly HeroController heroController;
-  private readonly float circleCastRadius;
+public class FightState : State {
+  private readonly float circleCastRadius = 20f;
 
-  public FightState(HeroController heroController) {
-    this.heroController = heroController;
-    this.circleCastRadius = 20f; // Radius of the circle cast
-  }
-
-  public void Enter() {
+  public override void OnEnter(StateMachine owner) {
+    base.OnEnter(owner);
+    var heroController = owner.GetComponent<HeroController>();
     // Perform a circle cast to detect nearby enemy objects
     Collider2D[] colliders = Physics2D.OverlapCircleAll(heroController.transform.position, circleCastRadius);
 
@@ -29,17 +26,15 @@ public class FightState : IHeroState {
 
     if (closestEnemy != null) {
       // Set the target of the AI agent to the transform of the closest enemy
-      heroController.setTarget(closestEnemy);
+      heroController.SetTarget(closestEnemy);
     } else {
 
     }
   }
 
-  public void Update() {
-    // Update fight state logic
-  }
+  public override void OnExit(StateMachine owner) {
+    base.OnExit(owner);
 
-  public void Exit() {
-    // Exit fight state logic
+    owner.GetComponent<AIAgent>().SetTarget(null);
   }
 }
