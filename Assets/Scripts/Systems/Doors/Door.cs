@@ -13,10 +13,16 @@ namespace Assets.Scripts.Systems.Doors {
   public class Door : InteractiveBehaviour {
 
     [SerializeField]
-    private Room _from;
+    private Exit _exitNorth;
 
     [SerializeField]
-    private Room _into;
+    private Exit _exitSouth;
+    
+    [SerializeField]
+    private Exit _exitWest;
+
+    [SerializeField]
+    private Exit _exitEast;
 
     [SerializeField]
     private bool _requiresKey = false;
@@ -27,42 +33,24 @@ namespace Assets.Scripts.Systems.Doors {
     private DoorState _doorState;
     public UnityEvent<DoorState> onDoorStateChanged;
 
-
     private NavMeshObstacle[] _obstacles;
 
     private void Awake() {
       _obstacles = GetComponentsInChildren<NavMeshObstacle>();
 
       _doorState = _defaultState;
-
-      foreach (var obstacle in _obstacles) {
-        obstacle.carveOnlyStationary = false;
-        obstacle.carving = !IsOpen;
-        obstacle.enabled = !IsOpen;
-      }
     }
 
-    private void DisableCollider() {
+    private void UpdateColliders() {
       foreach (var obstacle in _obstacles) {
-        obstacle.GetComponent<Collider2D>().enabled = false;
-      }
-    }
-
-    private void EnableCollider() {
-      foreach (var obstacle in _obstacles) {
-        obstacle.GetComponent<Collider2D>().enabled = true;
+        obstacle.GetComponent<Collider2D>().enabled = !IsOpen; // Is closed or locked
       }
     }
     
-    private void DisableObstacle() {
+    private void UpdateObstacles() {
       foreach (var obstacle in _obstacles) {
-        obstacle.enabled = false;
-      }
-    }
-
-    private void EnableObstacle() {
-      foreach (var obstacle in _obstacles) {
-        obstacle.enabled = true;
+        obstacle.carving = !IsOpen; // Is closed or locked
+        obstacle.enabled = !IsOpen;
       }
     }
 
@@ -71,19 +59,9 @@ namespace Assets.Scripts.Systems.Doors {
         _doorState = state;
         onDoorStateChanged.Invoke(_doorState);
       }
+      UpdateColliders();
+      UpdateObstacles();
 
-      foreach (var obstacle in _obstacles) {
-        obstacle.carving = IsOpen;
-        obstacle.enabled = IsOpen;
-      }
-
-      if (CurrentState == DoorState.Open) {
-        DisableCollider();
-        DisableObstacle();
-      } else {
-        EnableCollider();
-        EnableObstacle();
-      }
     }
 
     public DoorState CurrentState { get { return _doorState; } }
@@ -99,6 +77,7 @@ namespace Assets.Scripts.Systems.Doors {
     public bool IsLocked {
       get { return CurrentState == DoorState.Locked; }
     }
+
     private void Open() {
       ChangeState(DoorState.Open);
 

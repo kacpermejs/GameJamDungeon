@@ -20,7 +20,6 @@ namespace Assets.Scripts.Systems.Doors {
     }
 
     public void UpdateDoorState(DoorState state) {
-      Debug.Log("Update");
       foreach (var animator in _animators) {
         animator.SetInteger("doorState", (int)state);
       }
