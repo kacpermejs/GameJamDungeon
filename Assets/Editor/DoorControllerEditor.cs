@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEditor;
+using Assets.Scripts.Systems.Doors;
 
 [CustomEditor(typeof(DoorOrientation))]
 public class DoorControllerEditor : Editor {

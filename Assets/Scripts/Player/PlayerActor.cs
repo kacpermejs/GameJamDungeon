@@ -42,7 +42,6 @@ public class PlayerActor : MonoBehaviour, IActor
       if (hit.TryGetComponent(out IInteractive interactive)) {
         if (!interactive.CanInteract(this)) {
           Debug.Log("Cannot interact, skipping to next one!");
-          continue;
         }
 
         interactive.Interact(this);
