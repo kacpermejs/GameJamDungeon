@@ -101,7 +101,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bc6a5e552bcb824cb52ebe839a7f610, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _priority: 10
+  _priority: 100
+  _priorityModifier: 0
 --- !u!114 &-6407332130079643077
 MonoBehaviour:
   m_ObjectHideFlags: 0

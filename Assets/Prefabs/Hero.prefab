@@ -15,9 +15,10 @@ GameObject:
   - component: {fileID: 7974449904606081705}
   - component: {fileID: 3251041277764392651}
   - component: {fileID: 1862626631268038229}
+  - component: {fileID: 7369124940323190399}
   m_Layer: 0
   m_Name: Hero
-  m_TagString: Untagged
+  m_TagString: Hero
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -193,3 +194,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25013760a0d5ec042979f9889bef08ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7369124940323190399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9149360259769543352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26643a563d5c4934d8b94192e5fcd621, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _currentRoom: {fileID: 0}

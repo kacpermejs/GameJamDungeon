@@ -7,5 +7,7 @@ public class WayPoint : MonoBehaviour
   [SerializeField]
   private int _priority;
 
+  public int Priority { get => _priority; }
+
 
 }

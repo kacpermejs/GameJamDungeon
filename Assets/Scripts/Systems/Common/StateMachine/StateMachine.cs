@@ -11,6 +11,7 @@ namespace Assets.Scripts.Systems.Common.StateMachine {
     protected void Initialize(State state) {
       if (_currentState == null) {
         _currentState = state;
+        _currentState.OnEnter(this);
       } else {
         Debug.Log("Wrong initialization");
       }

@@ -1,29 +1,28 @@
-using Assets.Scripts.Systems.Common.StateMachine;
 using UnityEngine;
 
-public class HeroController : StateMachine {
-  private AIAgent _aiAgent; // Reference to the AIAgent component
+using Assets.Scripts.Systems.Common.StateMachine;
+using Assets.Scripts.Hero.Transitions;
+using Assets.Scripts.Hero.States;
+using UnityEngine.AI;
 
-  private PatrolState _patrolState;
-  private FightState _fightState;
+namespace Assets.Scripts.Hero {
 
-  private void Awake() {
+  [RequireComponent(typeof(MapMemory), typeof(AIAgent))]
+  public class HeroController : StateMachine {
 
-    _patrolState = new PatrolState();
-    _fightState = new FightState();
+    private GoToPrioritizedWaypointState _goToWayPointState;
+    private InteractWithWaypointObjectState _interactionState;
 
-    RegisterTransition(new CanSeePlayerTransition(_patrolState, _fightState));
-    RegisterTransition(new CannotSeePlayerTransition(_fightState, _patrolState));
+    private void Awake() {
 
-    Initialize(_patrolState);
+      _goToWayPointState = new GoToPrioritizedWaypointState();
+      _interactionState = new InteractWithWaypointObjectState();
+    }
 
-    // Get the AIAgent component attached to the same GameObject
-    _aiAgent = GetComponent<AIAgent>();
+    private void Start() {
+      Initialize(_goToWayPointState);
+    }
+
+
   }
-
-  public void SetTarget(Transform transform) {
-    _aiAgent.SetTarget(transform);
-  }
-
 }
-
